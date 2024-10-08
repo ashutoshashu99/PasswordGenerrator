@@ -25,16 +25,17 @@ function Login() {
   const loginButtonRef = useRef(null);
 
   const actualPsd = atob(currentPsd).split(" ")[0];
-  console.log(actualPsd);
   const inputFieldsId = [useRef(), useRef() , useRef(), useRef(), useRef()];
+   
+  console.log(actualPsd);
 
   const handleOnChange = (e) => {
     const id = parseInt(e.target.id);
     let refIndex = id;
     const value = e.target.value;
     
-    console.log("value: ", value);
-    console.log("id ", id);
+    // console.log("value: ", value);
+    // console.log("id ", id);
     
     if(!value && id > 0) refIndex--;
     else refIndex++;
@@ -67,7 +68,8 @@ function Login() {
           </button>
           <button
             onClick={() => {
-              console.log(password);
+              // console.log(password);
+              alert("Hint: " + localStorage.getItem("hint"))
             }}
             className="text-slate-600 "
           >
@@ -77,7 +79,7 @@ function Login() {
       </div>
     </>
   );
-  console.log(isValidPsd);
+  // console.log(isValidPsd);
 
   return isValidPsd ? <App /> : login;
 }
